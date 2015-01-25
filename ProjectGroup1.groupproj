@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{B76C0476-46E9-4DE8-9E5E-3DE831E02A5C}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="AlienAllFX.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="..\bass24\delphi\livespec\livespec.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="AlienAllFX">
+			<MSBuild Projects="AlienAllFX.dproj"/>
+		</Target>
+		<Target Name="AlienAllFX:Clean">
+			<MSBuild Projects="AlienAllFX.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="AlienAllFX:Make">
+			<MSBuild Projects="AlienAllFX.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="livespec">
+			<MSBuild Projects="..\bass24\delphi\livespec\livespec.dproj"/>
+		</Target>
+		<Target Name="livespec:Clean">
+			<MSBuild Projects="..\bass24\delphi\livespec\livespec.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="livespec:Make">
+			<MSBuild Projects="..\bass24\delphi\livespec\livespec.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="AlienAllFX;livespec"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="AlienAllFX:Clean;livespec:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="AlienAllFX:Make;livespec:Make"/>
+		</Target>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
+	</Project>
