@@ -6,7 +6,10 @@ uses
   Vcl.Themes,
   Vcl.Styles,
   About in 'About.pas' {Form2},
-  bass in 'bass.pas';
+  bass in 'bass.pas',
+  HColorPicker in 'HColorPicker.pas',
+  nvapi in 'nvapi.pas',
+  RGBHSLUtils in 'RGBHSLUtils.pas';
 
 {$R *.res}
 
